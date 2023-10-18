@@ -11,6 +11,7 @@ export const Navbar = () => {
                     <Link className="navbar-brand" to="/servicios">SERVICIOS</Link>
                     <Link className="navbar-brand" to="/alianzas">ALIANZAS</Link>
                     <Link className="navbar-brand" to="/certificados">CERTIFICADOS</Link>
+                    <Link className="navbar-brand" to="/reserva">RESERVAR HORA</Link>
                     <Link className="navbar-brand" to="/contactos">CONTACTOS</Link>
                 </nav>
                 <div className="second-menu-icons">

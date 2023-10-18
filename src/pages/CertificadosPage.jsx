@@ -7,13 +7,17 @@ import { useState } from 'react';
 
 export const DowloadFile = ({urlPdf,namePdf}) =>{
 
+
+
   return (<>
   <a  
     href={urlPdf}
     target="_blank" 
     rel="noopener noreferrer" 
+    className='btn btn-success stretched-link'
     download={namePdf}> 
-    Descargar
+    <span className="bi bi-box-arrow-down">&nbsp;</span> 
+    <span>Descargar</span>
   </a>
 </>);
 
@@ -23,13 +27,21 @@ export const CertificadosPage = () => {
   const [inputValue,setInputValue] = useState({
     status : false, 
     urlPdf : null,
-    namePdf : null
+    namePdf : null,
+    txtBuscar : null
   });
+
+  const  handleChange = (event) => {
+    setInputValue({
+      txtBuscar: event.target.value
+    });
+  }
+
   const descargarCertificado = ()=> {
 
+    const {txtBuscar} = inputValue;
     jsonList.map(list  => {
-
-      if(list.rut == '16900918-k'){
+      if(list.rut == txtBuscar){
         setInputValue({
           status: true,
           urlPdf : list.url,
@@ -53,6 +65,7 @@ export const CertificadosPage = () => {
                   className="form-control" 
                   id="txtBuscar" 
                   aria-describedby="buscar"
+                  onChange={handleChange}
             />
         </div>
         <br />
@@ -68,6 +81,7 @@ export const CertificadosPage = () => {
             </center>
         </div>
         <div className='cols-12'>
+        <center><br />
         {
           (status)&&
             (<DowloadFile 
@@ -76,6 +90,7 @@ export const CertificadosPage = () => {
             />)
            
         }
+        </center>
         </div>
         <br />
       </form>
