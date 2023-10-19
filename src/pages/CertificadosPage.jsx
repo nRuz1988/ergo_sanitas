@@ -1,25 +1,21 @@
 import React from 'react'
-import fileDownload from 'js-file-download';
 import jsonList from '../config/listCertificado.json';
-import file  from '/assets/certificados/certificado-16900918-k.pdf';
 import { useState } from 'react';
-
 
 export const DowloadFile = ({urlPdf,namePdf}) =>{
 
-
-
-  return (<>
-  <a  
-    href={urlPdf}
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className='btn btn-success stretched-link'
-    download={namePdf}> 
-    <span className="bi bi-box-arrow-down">&nbsp;</span> 
-    <span>Descargar</span>
-  </a>
-</>);
+  return (
+  <>
+    <a  
+      href={urlPdf}
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className='btn btn-success'
+      download={namePdf}> 
+      <span className="bi bi-box-arrow-down">&nbsp;</span> 
+      <span>Descargar</span>
+    </a>
+  </>);
 
 }
 export const CertificadosPage = () => {
